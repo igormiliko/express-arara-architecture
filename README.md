@@ -9,6 +9,12 @@ This repository is EXPERIMENTAL and open for helps, PAY ATTENTION:
 
 It's just a repo to aplly my knowledgements about back-end, performance, and OOP.
 
+## Under the hood:
+
+# -[x] Nodejs
+# -[x] Express
+# -[x] Prisma
+
 Blesses for all technologist in this milenium!!!
 
 #💨💢💥💫
