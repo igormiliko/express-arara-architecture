@@ -1,5 +1,5 @@
 import express, { Application } from "express";
-import BirdRoute from "./Routes/Birds";
+import BirdRoute from "./Routes/BirdsRoute";
 import BirdsMiddleField from "./Middlefields/BirdsMiddleField";
 
 class App {

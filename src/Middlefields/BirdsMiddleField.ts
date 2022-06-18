@@ -2,6 +2,7 @@ import BirdControl, { AbstractController } from "../Controllers/BirdControl";
 import { IAbstractRouter } from "../type";
 
 class BirdMiddleField {
+   
 
    applyControllers(BirdRoute: IAbstractRouter) {
       BirdRoute.getAll(BirdControl.getAll.bind(BirdControl));
@@ -11,6 +12,5 @@ class BirdMiddleField {
       BirdRoute.getOne(BirdControl.getOne.bind(BirdControl));
    }
 }
-
 
 export default new BirdMiddleField()

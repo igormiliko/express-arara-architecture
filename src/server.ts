@@ -1,5 +1,5 @@
 import { Worker } from "cluster";
-import app from "./app-5";
+import app from "./app";
 const cluster = require("cluster");
 const numCPUs = require("os").cpus().length;
 const PORT = 3331;
