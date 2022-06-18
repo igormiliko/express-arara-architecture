@@ -26,7 +26,7 @@ class App {
 
   private MiddleField() {
     console.time('Middlefield');
-    BirdsMiddleField.applyControllers(this.BirdRoute);
+    BirdsMiddleField.applyControllers();
     console.timeEnd('Middlefield');
   }
 
