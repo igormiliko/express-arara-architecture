@@ -11,9 +11,9 @@ It's just a repo to aplly my knowledgements about back-end, performance, and OOP
 
 ## Under the hood:
 
-# -[x] Nodejs
-# -[x] Express
-# -[x] Prisma
+-[x] Nodejs
+-[x] Express
+-[x] Prisma
 
 Blesses for all technologist in this milenium!!!
 
