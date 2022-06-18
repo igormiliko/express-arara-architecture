@@ -1,8 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
-import { nextTick } from "process";
-import BirdMiddleware from "../Middleware/BirdMiddleware";
 import { ICOntroller } from "../type";
-class AbstractRouter {
+export default class AbstractRouter {
   public pathName: string | RegExp = "";
   private router: any = Router()
 
@@ -49,7 +47,3 @@ class AbstractRouter {
     return appOut.use(this.router);
   }
 }
-
-class BirdRoute extends AbstractRouter {}
-
-export default new BirdRoute(BirdMiddleware.middlewares ,'birds');

@@ -7,14 +7,14 @@ class BirdMiddleWare {
          new Promise((res, rej) => res(
             setTimeout(() => '_', 50)
          ))
-         res.statusCode = 1234
+         res.statusCode = 200
          next()
       },
       (req: Request,res: Response, next: NextFunction) => {
          new Promise((res, rej) => res(
             setTimeout(() => '_', 50)
          ))
-         res.statusCode = 1234
+         res.statusCode = 200
          // console.log('And I can fly')
          next()
       },
