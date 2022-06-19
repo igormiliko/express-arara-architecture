@@ -1,6 +1,5 @@
-import BirdController from "../Controllers/BirdControl";
+import BirdController from "../Controllers/BirdController";
 import BirdsRoute from "../Routes/BirdsRoute";
-import { IAbstractRouter } from "../type";
 import AbstractMiddleField from "./AbstractMiddlefield";
 
 class BirdMiddleField extends AbstractMiddleField {}
