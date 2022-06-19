@@ -1,5 +1,5 @@
 import express, { Application } from "express";
-import BirdRoute from "./Routes/BirdsRoute";
+import Middlefields from "./Middlefields";
 import BirdsMiddleField from "./Middlefields/BirdsMiddleField";
 import Routes from "./Routes";
 
@@ -9,7 +9,7 @@ class App {
   constructor() {
     this.express = express();
     this.Middlewares();
-    this.MiddleField();
+    this.RunMiddleField();
     this.LoadRoutes();
   }
 
@@ -18,8 +18,9 @@ class App {
     this.express.use(express.urlencoded({ extended: true }));
   }
 
-  private MiddleField() {
-    BirdsMiddleField.applyControllers();
+  private RunMiddleField() {
+    Middlefields.run()
+    // BirdsMiddleField
   }
 
   private LoadRoutes() {
