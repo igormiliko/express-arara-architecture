@@ -9,7 +9,7 @@ class App {
   constructor() {
     this.express = express();
     this.middlewares();
-    this.Router()
+    this.Router();
     this.MiddleField();
   }
 
@@ -19,15 +19,11 @@ class App {
 }
 
   private Router() {
-    console.time('Router')
-    this.BirdRoute = BirdRoute
-    console.timeEnd('Router')
+    this.BirdRoute = BirdRoute;
   }
 
   private MiddleField() {
-    console.time('Middlefield');
     BirdsMiddleField.applyControllers();
-    console.timeEnd('Middlefield');
   }
 
   init() {
