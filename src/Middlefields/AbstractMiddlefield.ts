@@ -10,16 +10,17 @@ export default class AbstractMiddleField {
   }
 
   applyControllers() {
-   
+    try {
       Object.keys(this.Route).map((key: string) => {
-        if(
+        if (
           this.Route[key as keyof IAbstractRoute] &&
           this.Controller[key as keyof AbstractController]
-          ) {
-            this.Route[key](this.Controller[key].bind(this.Controller));
-          }
-          
+        ) {
+          this.Route[key](this.Controller[key].bind(this.Controller));
+        }
       });
-  
+    } catch (error) {
+      console.log('ROUTE | CONTROLLER are not implemented in order')
+    }
   }
 }
