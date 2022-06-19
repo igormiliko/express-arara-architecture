@@ -11,7 +11,7 @@ class BirdController implements AbstractController {
     this.resolver = ResolverFactory[entityName]();
   }
 
-  async getAll(req: Request, res: Response, Next: NextFunction) {
+  getAll = async (req: Request, res: Response, Next: NextFunction) => {
     try {
       const response = await this.resolver.getAll();
       return res.send(response);
@@ -20,7 +20,7 @@ class BirdController implements AbstractController {
     }
   }
 
-  async getOne(req: Request, res: Response, Next: NextFunction) {
+  getOne = async (req: Request, res: Response, Next: NextFunction) => {
     try {
       const { id } = req.params;
       const where = {
@@ -33,7 +33,7 @@ class BirdController implements AbstractController {
     }
   }
 
-  async delete(req: Request, res: Response, Next: NextFunction) {
+  delete = async (req: Request, res: Response, Next: NextFunction) => {
     try {
       const { id } = req.body;
       const where = {
@@ -46,7 +46,7 @@ class BirdController implements AbstractController {
     }
   }
 
-  async create(req: Request, res: Response, Next: NextFunction) {
+  create = async (req: Request, res: Response, Next: NextFunction) => {
     try {
       const { bird } = req.body;
       const response = await this.resolver.create(bird);
@@ -56,7 +56,7 @@ class BirdController implements AbstractController {
     }
   }
 
-  async update(req: Request, res: Response, Next: NextFunction) {
+  update = async (req: Request, res: Response, Next: NextFunction) => {
     try {
       const { bird, id } = req.body;
       const where = {

@@ -1,5 +1,19 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { ICOntroller } from "../type";
+
+
+export interface IAbstractRoute {
+  getAll(controller: ICOntroller): void
+
+  getOne(controller: ICOntroller): void
+
+  create(controller: ICOntroller): void
+
+  update(controller: ICOntroller): void
+
+  delete(controller: ICOntroller): void
+}
+
 export default class AbstractRouter {
   public pathName: string | RegExp = "";
   private router: any = Router()
@@ -23,23 +37,23 @@ export default class AbstractRouter {
     );
   }
 
-  getAll(controller: ICOntroller) {
+  getAll = (controller: ICOntroller) => {
     this.addRoute("get", this.pathName, controller);
   }
 
-  getOne(controller: ICOntroller) {
+  getOne = (controller: ICOntroller) => {
     this.addRoute("get", `${this.pathName}/:id`, controller);
   }
 
-  post(controller: ICOntroller) {
+  create = (controller: ICOntroller) => {
     this.addRoute("post", this.pathName, controller);
   }
 
-  put(controller: ICOntroller) {
+  update = (controller: ICOntroller) => {
     this.addRoute("put", this.pathName, controller);
   }
 
-  delete(controller: ICOntroller) {
+  delete = (controller: ICOntroller) => {
     this.addRoute("delete", this.pathName, controller);
   }
 
