@@ -1,5 +1,6 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { ICOntroller } from "../type";
+import express from "express"
 
 
 export interface IAbstractRoute {
@@ -57,7 +58,7 @@ export default class AbstractRouter {
     this.addRoute("delete", this.pathName, controller);
   }
 
-  initIn(appOut: any) {
+  initIn(appOut: express.Application) {
     return appOut.use(this.router);
   }
 }
