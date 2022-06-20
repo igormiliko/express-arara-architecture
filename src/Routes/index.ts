@@ -1,10 +1,12 @@
 import express from "express"
 import AbstractRouter from "./AbstractRoute";
 import BirdsRoute from "./BirdsRoute";
+import FishRoute from "./FishRoute";
 
 class Routes {
    routes = [
-      BirdsRoute
+      BirdsRoute,
+      FishRoute
    ]
    load(app: express.Application) {
       return new Promise<void>((resolve, reject) => {

@@ -1,6 +1,5 @@
 import express, { Application } from "express";
 import Middlefields from "./Middlefields";
-import BirdsMiddleField from "./Middlefields/BirdsMiddleField";
 import Routes from "./Routes";
 
 class App {

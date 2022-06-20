@@ -1,4 +1,4 @@
-import BirdMiddleware from "../Middleware/BirdMiddleware";
+import BirdMiddleware from "../Middleware/Middleware";
 import AbstractRouter from "./AbstractRoute";
 
 class BirdRoute extends AbstractRouter {}

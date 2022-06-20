@@ -1,15 +1,18 @@
-import { birds, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
+
+type entities = "fish" | "birds"
+
 
 export default class AbstractResolver {
   prisma: PrismaClient = new PrismaClient();
-  entity: "birds";
-  constructor(entity: "birds") {
+  entity: entities;
+  constructor(entity: entities) {
     this.entity = entity;
   }
   async getAll() {
     return new Promise<any[]>(async (resolve, reject) => {
       try {
-        const res: any[] = await this.prisma[this.entity].findMany();
+        const res: any[] = await this.prisma[this.entity as any].findMany();
         return resolve(res);
       } catch (error) {
         return reject(error);
@@ -20,7 +23,7 @@ export default class AbstractResolver {
   async create(entity: any) {
     return new Promise<any>(async (resolve, reject) => {
       try {
-        const res: any = await this.prisma[this.entity].create({
+        const res: any = await this.prisma[this.entity as any].create({
           data: entity,
         });
         return resolve(res);
@@ -32,7 +35,7 @@ export default class AbstractResolver {
   async getOne(where: any) {
     return new Promise<any | string>(async (resolve, reject) => {
       try {
-        const res: any = await this.prisma[this.entity].findUnique({
+        const res: any = await this.prisma[this.entity as any].findUnique({
           where: where,
         });
         return resolve(res);
@@ -44,7 +47,7 @@ export default class AbstractResolver {
   async delete(where: any) {
     return new Promise<any>(async (resolve, reject) => {
       try {
-        const res: any = await this.prisma[this.entity].delete({
+        const res: any = await this.prisma[this.entity as any].delete({
           where: where,
         });
         return resolve(res);
@@ -56,7 +59,7 @@ export default class AbstractResolver {
   async update(where: any, data: any) {
     return new Promise<any>((resolve, reject) => {
       try {
-        const res: any = this.prisma[this.entity].update({
+        const res: any = this.prisma[this.entity as any].update({
           where: where,
           data: data,
         });

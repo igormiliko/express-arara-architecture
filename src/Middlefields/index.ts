@@ -1,9 +1,11 @@
 import AbstractMiddleField from "./AbstractMiddlefield";
-import BirdsMiddleField from "./BirdsMiddleField";
+import BirdsMiddleField from "./BirdsMiddlefield";
+import FishMiddlefield from "./FishMiddlefield";
 
 class MiddleField {
    middlefields = [
-      BirdsMiddleField
+      BirdsMiddleField,
+      FishMiddlefield
    ]
    run() {
       return new Promise<void>((resolve, reject) => {

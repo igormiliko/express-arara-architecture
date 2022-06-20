@@ -14,3 +14,9 @@ model birds {
   main_color     String? @db.VarChar
   wingspan       Decimal @default(0.0) @db.Decimal
 }
+
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by the Prisma Client.
+model fish {
+  fish_id        Int    @id(map: "fish_pk") @default(autoincrement())
+  cientific_name String @db.VarChar
+}
