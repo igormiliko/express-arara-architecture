@@ -33,7 +33,13 @@ export default class AbstractRouter {
     controller: ICOntroller
   ) {
     this.router[method](`/${pathName}`, (req: Request, res: Response, next:NextFunction) => {
-      controller(req, res, next)
+      return new Promise(async (resolve, reject) => {
+        try {
+          return resolve(await controller(req, res, next))
+        } catch (error) {
+          reject(error)
+        }
+      })
     }
     );
   }
