@@ -10,7 +10,7 @@ class Routes {
    ]
    load(app: express.Application) {
       return new Promise<void>((resolve, reject) => {
-         this.routes.map((route: AbstractRouter) => route.initIn(app))
+         return this.routes.map((route: AbstractRouter) => route.initIn(app))
       })
    }
 }

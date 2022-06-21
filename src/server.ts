@@ -1,12 +1,10 @@
 import { Worker } from "cluster";
 import app from "./app";
 const cluster = require("cluster");
-const numCPUs = require("os").cpus().length;
 const PORT = 3331;
 
 // if (cluster.isMaster) {
 //    console.log('Master process is running');
-//    cluster.fork();
 //    cluster.fork();
 //  } else {
 //    app.listen(PORT, () => {

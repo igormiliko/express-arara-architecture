@@ -19,7 +19,6 @@ class App {
 
   private RunMiddleField() {
     Middlefields.run()
-    // BirdsMiddleField
   }
 
   private LoadRoutes() {
