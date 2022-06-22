@@ -1,14 +1,13 @@
 import { NextFunction, Request, Response } from "express";
 import AbstractResolver from "../Resolver/AbstractResolver";
-import ResolverFactory from "../Resolver/ResolverFactory";
 import AbstractController from "./AbstractController";
 
-class BirdController implements AbstractController {
+class BirdController extends AbstractController {
   builder: any = {};
   resolver: AbstractResolver;
 
   constructor(entityName: string) {
-    this.resolver = ResolverFactory[entityName]();
+    super(entityName)
   }
 
   getAll = async (req: Request, res: Response, Next: NextFunction) => {

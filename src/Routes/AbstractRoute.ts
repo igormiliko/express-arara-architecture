@@ -18,7 +18,7 @@ export interface IAbstractRoute {
 
 export default class AbstractRouter {
   public pathName: string | RegExp = "";
-  private router: any = Router()
+  private router: Router = Router()
 
   constructor(
     middleware: any,

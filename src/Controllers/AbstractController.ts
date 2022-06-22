@@ -1,15 +1,19 @@
 import { NextFunction, Request, Response } from "express";
+import ResolverFactory from "../Resolver/ResolverFactory";
 
-export default interface AbstractController {
+export default abstract class AbstractController {
   builder: any;
   resolver: any;
-  getAll(req: Request, res: Response, Next: NextFunction): any;
+  constructor(entityName: string) {
+    this.resolver = ResolverFactory[entityName]();
+  }
+  abstract getAll(req: Request, res: Response, Next: NextFunction): any;
 
-  getOne(req: Request, res: Response, Next: NextFunction): any; 
+  abstract getOne(req: Request, res: Response, Next: NextFunction): any; 
 
-  delete(req: Request, res: Response, Next: NextFunction): any; 
+  abstract delete(req: Request, res: Response, Next: NextFunction): any; 
 
-  create(req: Request, res: Response, Next: NextFunction): any; 
+  abstract create(req: Request, res: Response, Next: NextFunction): any; 
 
-  update(req: Request, res: Response, Next: NextFunction): any; 
+  abstract update(req: Request, res: Response, Next: NextFunction): any; 
 }
