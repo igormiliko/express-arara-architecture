@@ -1,6 +1,7 @@
 import { NextFunction, Request, Response, Router } from "express";
 import { ICOntroller } from "../type";
 import express from "express"
+const cluster = require("cluster");
 
 
 export interface IAbstractRoute {
@@ -32,16 +33,21 @@ export default class AbstractRouter {
     pathName: string | RegExp,
     controller: ICOntroller
   ) {
-    this.router[method](`/${pathName}`, (req: Request, res: Response, next:NextFunction) => {
-      return new Promise(async (resolve, reject) => {
-        try {
-          return resolve(await controller(req, res, next))
-        } catch (error) {
-          reject(error)
-        }
-      })
+    if(cluster.isMaster) {
+      cluster.fork()
+    } else {
+      console.log('Slave route')
+      this.router[method](`/${pathName}`, (req: Request, res: Response, next:NextFunction) => {
+        return new Promise(async (resolve, reject) => {
+          try {
+            return resolve(await controller(req, res, next))
+          } catch (error) {
+            reject(error)
+          }
+        })
+      }
+      );
     }
-    );
   }
 
   getAll = (controller: ICOntroller) => {
