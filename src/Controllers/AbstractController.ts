@@ -1,11 +1,11 @@
 import { NextFunction, Request, Response } from "express";
-import ResolverFactory from "../Resolver/ResolverFactory";
+import AbstractResolver, { entities } from "../Resolver/AbstractResolver";
 
 export default abstract class AbstractController {
   builder: any;
   resolver: any;
-  constructor(entityName: string) {
-    this.resolver = ResolverFactory[entityName]();
+  constructor(entityName: entities) {
+    this.resolver = new AbstractResolver(entityName);
   }
   abstract getAll(req: Request, res: Response, Next: NextFunction): any;
 

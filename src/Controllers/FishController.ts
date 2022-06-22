@@ -1,14 +1,13 @@
 import { NextFunction, Request, Response } from "express";
-import AbstractResolver from "../Resolver/AbstractResolver";
-import ResolverFactory from "../Resolver/ResolverFactory";
+import AbstractResolver, { entities } from "../Resolver/AbstractResolver";
 import AbstractController from "./AbstractController";
 
-class FishController implements AbstractController {
+class FishController extends AbstractController {
   builder: any = {};
   resolver: AbstractResolver;
 
-  constructor(entityName: string) {
-    this.resolver = ResolverFactory[entityName]();
+  constructor(entityName: entities) {
+    super(entityName)
   }
 
   getAll = async (req: Request, res: Response, Next: NextFunction) => {

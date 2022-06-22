@@ -1,12 +1,12 @@
 import { NextFunction, Request, Response } from "express";
-import AbstractResolver from "../Resolver/AbstractResolver";
+import AbstractResolver, { entities } from "../Resolver/AbstractResolver";
 import AbstractController from "./AbstractController";
 
 class BirdController extends AbstractController {
   builder: any = {};
   resolver: AbstractResolver;
 
-  constructor(entityName: string) {
+  constructor(entityName: entities) {
     super(entityName)
   }
 

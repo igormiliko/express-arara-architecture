@@ -1,6 +1,6 @@
 const cluster = require("cluster");
 
-import BirdsMiddleField from "./BirdsMiddlefield";
+import BirdsMiddleField from "./BirdsMiddleField";
 import FishMiddlefield from "./FishMiddlefield";
 
 class MiddleField {
@@ -9,7 +9,7 @@ class MiddleField {
     try {
       await Promise.all(
         this.middlefields.map(async (middlefield: any) => {
-          if(cluster.isMaster) {
+          if(cluster.isPrimary) {
              cluster.fork()
              cluster.on("exit", () => {
               cluster.fork();

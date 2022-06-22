@@ -1,6 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 
-type entities = "fish" | "birds"
+export type entities = "fish" | "birds"
 
 export default class AbstractResolver {
   prisma: PrismaClient = new PrismaClient();

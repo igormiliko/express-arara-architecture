@@ -3,7 +3,7 @@ import app from "./app";
 const cluster = require("cluster");
 const PORT = 3331;
 
-if (cluster.isMaster) {
+if (cluster.isPrimary) {
    console.log('Master process is running');
    cluster.fork();
  } else {

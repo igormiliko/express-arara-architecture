@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "s": "ts-node ./src/server.ts"
+    "s": "ts-node ./src/server.ts --trace-warnings"
   },
   "dependencies": {
     "@prisma/client": "^3.15.1",
