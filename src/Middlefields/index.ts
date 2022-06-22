@@ -11,6 +11,9 @@ class MiddleField {
         this.middlefields.map(async (middlefield: any) => {
           if(cluster.isMaster) {
              cluster.fork()
+             cluster.on("exit", () => {
+              cluster.fork();
+            });
           } else {
           await Promise.resolve(middlefield.applyControllers());
           }

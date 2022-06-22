@@ -35,6 +35,9 @@ export default class AbstractRouter {
   ) {
     if(cluster.isMaster) {
       cluster.fork()
+      cluster.on("exit", () => {
+        cluster.fork();
+      });
     } else {
       console.log('Slave route')
       this.router[method](`/${pathName}`, (req: Request, res: Response, next:NextFunction) => {
