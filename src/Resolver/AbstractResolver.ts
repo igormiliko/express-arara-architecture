@@ -2,7 +2,6 @@ import { PrismaClient } from "@prisma/client";
 
 type entities = "fish" | "birds"
 
-
 export default class AbstractResolver {
   prisma: PrismaClient = new PrismaClient();
   entity: entities;
@@ -57,9 +56,9 @@ export default class AbstractResolver {
     });
   }
   async update(where: any, data: any) {
-    return new Promise<any>((resolve, reject) => {
+    return new Promise<any>(async (resolve, reject) => {
       try {
-        const res: any = this.prisma[this.entity as any].update({
+        const res: any = await this.prisma[this.entity as any].update({
           where: where,
           data: data,
         });

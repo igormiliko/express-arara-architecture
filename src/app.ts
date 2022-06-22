@@ -17,8 +17,8 @@ class App {
     this.express.use(express.urlencoded({ extended: true }));
   }
 
-  private RunMiddleField() {
-    Middlefields.run()
+  private async RunMiddleField() {
+    await Middlefields.run()
   }
 
   private LoadRoutes() {

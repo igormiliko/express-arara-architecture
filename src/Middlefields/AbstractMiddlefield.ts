@@ -10,7 +10,7 @@ export default class AbstractMiddleField {
   }
 
   async applyControllers() {
-    return new Promise<void>((resolve, reject) => {
+    return new Promise<void>(() => {
       try {
         Object.keys(this.Route).map((key: string) => {
           if (
@@ -20,11 +20,9 @@ export default class AbstractMiddleField {
             this.Route[key](this.Controller[key].bind(this.Controller));
           }
         });
-        
       } catch (error) {
-        console.log("ROUTE | CONTROLLER are not implemented in order", error);
-        
+        return error;
       }
-    })
+    });
   }
 }
