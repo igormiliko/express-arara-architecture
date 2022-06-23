@@ -16,7 +16,7 @@ It's just a repo to aplly my knowledgements about back-end, performance, and OOP
 - [x] Prisma
 
 ## Class diagram
-![image](https://user-images.githubusercontent.com/72326248/175081103-5d3853f0-e573-45be-9994-aad85badede8.png)
+![image](https://user-images.githubusercontent.com/72326248/175280365-89077440-d6db-4924-8bfe-4f14c02a6e25.png)
 
 ## Last autocannon
 ![image](https://user-images.githubusercontent.com/72326248/175084148-55455084-df9a-4f12-ad8c-a62ec3326776.png)
