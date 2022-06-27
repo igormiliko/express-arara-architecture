@@ -1,5 +1,7 @@
 {
   "scripts": {
+    "start": "CLIMEM=8999 node -r climem dist/server.js",
+    "climem": "npx climem 8999",
     "s": "ts-node ./src/server.ts --trace-warnings"
   },
   "dependencies": {
